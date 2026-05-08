@@ -9,9 +9,16 @@
 
     <h1>Fruit Recognition App</h1>
 
-    <form>
-        <input type="file">
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="fruit_image" required>
         <button type="submit">Predict</button>
+        {% if prediction %}
+
+            <h2>Prediction: {{ prediction }}</h2>
+
+            <h3>Confidence: {{ confidence }}%</h3>
+
+        {% endif %}
     </form>
 
 </body>
