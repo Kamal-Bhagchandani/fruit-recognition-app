@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fruit Recognition App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="container">
 
-    <h1>Fruit Recognition App</h1>
+        <h1>Fruit Recognition App</h1>
 
-    <form action="/predict" method="POST" enctype="multipart/form-data">
-        <input type="file" name="fruit_image" required>
-        <button type="submit">Predict</button>
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <input type="file" name="fruit_image" required>
+            <button type="submit">Predict Fruit</button>
+        </form>
+
         {% if prediction %}
-
-            <h2>Prediction: {{ prediction }}</h2>
-
-            <h3>Confidence: {{ confidence }}%</h3>
-
+            <div class="result">
+                <h2>Prediction: {{ prediction }}</h2>
+                
+                <h3>Confidence: {{ confidence }}%</h3>
+            </div>
         {% endif %}
-    </form>
+
+    </div>
 
 </body>
 </html>
