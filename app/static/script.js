@@ -16,7 +16,7 @@ form.addEventListener("submit", function(event) {
 
     errorMessage.innerText = "";
 
-    const button = document.querySelector("button");
+    const button = document.getElementById("predict-button");
     button.innerText = "Predicting...";
 });
 
@@ -74,5 +74,28 @@ uploadBox.addEventListener("drop", function(event) {
 
         // Show preview
         showPreview(file);
+    }
+});
+
+const themeButton = document.getElementById("theme-button");
+
+// Apply saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark-mode");
+    themeButton.innerText = "☀️ Light Mode";
+} else {
+    themeButton.innerText = "🌙 Dark Mode";
+}
+
+// Toggle theme
+themeButton.addEventListener("click", function() {
+    document.documentElement.classList.toggle("dark-mode");
+
+    if (document.documentElement.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        themeButton.innerText = "☀️ Light Mode";
+    } else {
+        localStorage.setItem("theme", "light");
+        themeButton.innerText = "🌙 Dark Mode";
     }
 });

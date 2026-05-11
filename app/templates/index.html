@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fruit Recognition App</title>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark-mode");
+        }
+    </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
+
+        <div class="theme-toggle">
+            <button id="theme-button">🌙 Dark Mode </button>
+        </div>
 
         <h1>Fruit Recognition App</h1>
 
@@ -27,7 +36,7 @@
                 <img id="preview-image" src="#" alt="Image Preview">
             </div>
 
-            <button type="submit">Predict Fruit</button>
+            <button type="submit" id="predict-button">Predict Fruit</button>
         </form>
 
         {% if prediction %}

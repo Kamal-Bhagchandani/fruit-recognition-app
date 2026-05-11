@@ -1,22 +1,64 @@
+:root {
+    --body-bg: #f4f4f4;
+    --text-color: #111;
+    --container-bg: white;
+    --container-shadow: rgba(0, 0, 0, 0.1);
+    --upload-border: #999;
+    --upload-hover-bg: #f9f9f9;
+    --dragging-bg: #f0f0f0;
+    --dragging-border: #333;
+    --note-bg: #ffe5e5;
+    --note-text: #a33;
+    --button-bg: white;
+    --button-text: black;
+    --button-border: grey;
+    --button-hover-border: black;
+    --progress-bg: #ddd;
+    --progress-fill: #4caf50;
+    --error-color: red;
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --body-bg: #121212;
+    --text-color: #f4f4f4;
+    --container-bg: #1e1e1e;
+    --container-shadow: rgba(255, 255, 255, 0.1);
+    --upload-border: #666;
+    --upload-hover-bg: #2a2a2a;
+    --dragging-bg: #333;
+    --dragging-border: #aaa;
+    --note-bg: #3a1f1f;
+    --note-text: #ffb3b3;
+    --button-bg: #2c2c2c;
+    --button-text: white;
+    --button-border: #777;
+    --button-hover-border: white;
+    --progress-bg: #444;
+    --progress-fill: #66bb6a;
+    --error-color: #ff6b6b;
+}
+
 body {
     margin: 0;
-    padding: 0;
+    padding: 30px 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-
+    background-color: var(--body-bg);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    height: 100vh;
+    min-height: 100vh;
+    transition: 0.3s ease;
 }
 
 .container {
-    background-color: white;
+    background-color: var(--container-bg);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px var(--container-shadow);
     text-align: center;
     width: 400px;
     transition: 0.3s ease;
@@ -27,8 +69,7 @@ body {
 }
 
 .upload-box {
-    border: 2px dashed #999;
-
+    border: 2px dashed var(--upload-border);
     border-radius: 10px;
 
     padding: 30px;
@@ -43,7 +84,7 @@ body {
 }
 
 .upload-box:hover {
-    background-color: #f9f9f9;
+    background-color: var(--upload-hover-bg);
 }
 
 .upload-box input {
@@ -51,13 +92,12 @@ body {
 }
 
 .dragging {
-    background-color: #f0f0f0;
-
-    border-color: #333;
+    background-color: var(--dragging-bg);
+    border-color: var(--dragging-border);
 }
 
 #error-message {
-    color: red;
+    color: var(--error-color);
     margin-top: 10px;
     font-size: 14px;
 }
@@ -65,12 +105,13 @@ body {
 .note-box {
     width: 600px;
     margin-top: 20px;
-    background-color: #ffe5e5;
-    color: #a33;
+    background-color: var(--note-bg);
+    color: var(--note-text);
     padding: 15px;
     border-radius: 10px;
     font-size: 14px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
 }
 
 h1 {
@@ -83,13 +124,16 @@ input[type="file"] {
 
 button {
     padding: 10px 20px;
-    border: grey solid 1px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--button-border);
     border-radius: 6px;
     font-size: 16px;
+    transition: 0.3s ease;
 }
 
 button:hover {
-    border: black solid 1px;
+    border: 1px solid var(--button-hover-border);
     cursor: pointer;
     opacity: 0.9;
 }
@@ -113,7 +157,7 @@ button:hover {
 .progress-bar {
     width: 100%;
     height: 20px;
-    background-color: #ddd;
+    background-color: var(--progress-bg);
     border-radius: 10px;
     overflow: hidden;
     margin-top: 10px;
@@ -121,6 +165,13 @@ button:hover {
 
 .progress-fill {
     height: 100%;
-    background-color: #4caf50;
+    background-color: var(--progress-fill);
     border-radius: 10px;
+}
+
+
+.theme-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
 }
