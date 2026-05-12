@@ -1,0 +1,10 @@
+venv
+__pycache__
+*.pyc
+.git
+.ipynb_checkpoints
+datasets
+screenshots
+README.md
+requirements.txt
+training

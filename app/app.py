@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import os
 
-from training.predict import predict_fruit
+from app.predict import predict_fruit
 
 app = Flask(__name__)
 
