@@ -6,6 +6,7 @@ from app.predict import predict_fruit
 app = Flask(__name__)
 
 UPLOAD_FOLDER = "app/uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 
